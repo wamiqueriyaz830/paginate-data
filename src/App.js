@@ -37,7 +37,7 @@ function App() {
     } catch (error) {
       console.log(error);
       console.log(error.message)
-alert(`${error.message}`)
+      alert(error.message)
     }
     setLoading(false)
    }
