@@ -36,7 +36,8 @@ function App() {
       setPost(data)
     } catch (error) {
       console.log(error);
-      alert("Failed to fetch :Please try later...")
+      console.log(error.message)
+alert(`${error.message}`)
     }
     setLoading(false)
    }
