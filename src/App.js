@@ -36,6 +36,7 @@ function App() {
       setPost(data)
     } catch (error) {
       console.log(error);
+      alert("Failed to fetch :Please try later...")
     }
     setLoading(false)
    }
@@ -49,12 +50,14 @@ function App() {
       <h1>Employee Data Table</h1>
      {loading && <h2>Loading...</h2>}
      <table>
+     
         <tr>
             <th>ID</th>
             <th>Name</th>
             <th>Email</th>
             <th>Role</th>
         </tr>
+        <tbody>
       {currentPosts.map((item)=>{
         const {id,name,email,role}=item
         return (
@@ -67,6 +70,7 @@ function App() {
           </tr>
         )
       })}
+      </tbody>
       </table>
       <button  onClick={handlePrevPagination}>Previous</button>
       <button>{currentPage}</button>
