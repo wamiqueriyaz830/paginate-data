@@ -5,6 +5,7 @@ import './App.css';
 function App() {
    const [post,setPost]= useState([])
    const [loading,setLoading]=useState(false)
+   const [error,setError]=useState("")
 
    const [currentPage,setCurrentPage]=useState(1)
 
@@ -37,6 +38,7 @@ function App() {
     } catch (error) {
       console.log(error);
       console.log(error.message)
+      setError(error.message)
       alert(error.message)
     }
     setLoading(false)
@@ -58,6 +60,7 @@ function App() {
             <th>Email</th>
             <th>Role</th>
         </tr>
+        {error && <p>{error}</p>}
         <tbody>
       {currentPosts.map((item)=>{
         const {id,name,email,role}=item
